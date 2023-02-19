@@ -12,25 +12,30 @@ dict_roman = {
 
 test_roman = 'CMIV'
 
-#value = dict_roman[test_roman[-1]]
-#print(value)
+def roman_to_arabic(roman_str):
+    '''
+    This function convert a roman number into an arabic number.
 
-#arabic = value
-#for i in reversed(test_roman[:-1]):
-#    value_next = dict_roman[i]
-#    if value_next < value:
-#        arabic -= value_next
-#    else:
-#        arabic += value_next
-#    
-#    value = value_next
+    Args:
+        roman_str (str): string defining the roman number
 
-#print(arabic)
+    Returns:
+        arabic (int): the corresponding arabic (decimal) number
+    '''
+    reversed_roman = roman_str[::-1]
+    
+    values = [ dict_roman[roman_char] if i == 0 or dict_roman[reversed_roman[i-1]] <= dict_roman[roman_char]  
+        else -dict_roman[roman_char] for i, roman_char in enumerate(reversed_roman)]
 
-reversed_roman = test_roman[::-1]
-print(reversed_roman)
+    arabic = sum(values)
 
-values = [ dict_roman[roman_char] if i == 0 or dict_roman[reversed_roman[i-1]] <= dict_roman[roman_char]  
-    else -dict_roman[roman_char] for i, roman_char in enumerate(reversed_roman)]
+    return arabic
 
-print(sum(values))
+assert roman_to_arabic(test_roman) == 904
+
+
+inp_roman = input('Please insert a Roman number: ')
+
+print(f"Roman number: {inp_roman}       Arabic number: {roman_to_arabic(inp_roman)}")
+
+
