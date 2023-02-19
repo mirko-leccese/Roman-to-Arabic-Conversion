@@ -27,8 +27,10 @@ test_roman = 'CMIV'
 
 #print(arabic)
 
+reversed_roman = test_roman[::-1]
+print(reversed_roman)
 
-values = [ dict_roman[roman_char] if i == 0 or dict_roman[test_roman[i-1]] <= dict_roman[roman_char]  
-    else -dict_roman[roman_char] for i, roman_char in enumerate(reversed(test_roman))]
+values = [ dict_roman[roman_char] if i == 0 or dict_roman[reversed_roman[i-1]] <= dict_roman[roman_char]  
+    else -dict_roman[roman_char] for i, roman_char in enumerate(reversed_roman)]
 
-print(values)
+print(sum(values))
