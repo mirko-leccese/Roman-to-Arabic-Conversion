@@ -10,8 +10,6 @@ dict_roman = {
     'M' : 1000
 }
 
-test_roman = 'CMIV'
-
 def roman_to_arabic(roman_str):
     '''
     This function convert a roman number into an arabic number.
@@ -31,8 +29,9 @@ def roman_to_arabic(roman_str):
 
     return arabic
 
-assert roman_to_arabic(test_roman) == 904
-
+assert roman_to_arabic('CMIV') == 904
+assert roman_to_arabic('DCCCXLIX') == 849
+assert roman_to_arabic('MMMCMXCIX') == 3999
 
 inp_roman = input('Please insert a Roman number: ')
 
