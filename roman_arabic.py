@@ -12,7 +12,7 @@ dict_roman = {
 
 def roman_to_arabic(roman_str):
     '''
-    This function convert a roman number into an arabic number.
+    This function converts a roman number into an arabic number.
 
     Args:
         roman_str (str): string defining the roman number
